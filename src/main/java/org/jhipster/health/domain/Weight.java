@@ -25,8 +25,8 @@ public class Weight implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "jhi_timestamp")
-    private LocalDate timestamp;
+    @Column(name = "jhi_date")
+    private LocalDate date;
 
     @Column(name = "weight")
     private Float weight;
@@ -44,17 +44,17 @@ public class Weight implements Serializable {
         this.id = id;
     }
 
-    public LocalDate getTimestamp() {
-        return timestamp;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public Weight timestamp(LocalDate timestamp) {
-        this.timestamp = timestamp;
+    public Weight date(LocalDate date) {
+        this.date = date;
         return this;
     }
 
-    public void setTimestamp(LocalDate timestamp) {
-        this.timestamp = timestamp;
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
     public Float getWeight() {
@@ -108,7 +108,7 @@ public class Weight implements Serializable {
     public String toString() {
         return "Weight{" +
             "id=" + getId() +
-            ", timestamp='" + getTimestamp() + "'" +
+            ", date='" + getDate() + "'" +
             ", weight=" + getWeight() +
             "}";
     }

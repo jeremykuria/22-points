@@ -42,8 +42,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = TwentyTwoPointsApp.class)
 public class WeightResourceIntTest {
 
-    private static final LocalDate DEFAULT_TIMESTAMP = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_TIMESTAMP = LocalDate.now(ZoneId.systemDefault());
+    private static final LocalDate DEFAULT_DATE = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_DATE = LocalDate.now(ZoneId.systemDefault());
 
     private static final Float DEFAULT_WEIGHT = 1F;
     private static final Float UPDATED_WEIGHT = 2F;
@@ -90,7 +90,7 @@ public class WeightResourceIntTest {
      */
     public static Weight createEntity(EntityManager em) {
         Weight weight = new Weight()
-            .timestamp(DEFAULT_TIMESTAMP)
+            .date(DEFAULT_DATE)
             .weight(DEFAULT_WEIGHT);
         return weight;
     }
@@ -115,7 +115,7 @@ public class WeightResourceIntTest {
         List<Weight> weightList = weightRepository.findAll();
         assertThat(weightList).hasSize(databaseSizeBeforeCreate + 1);
         Weight testWeight = weightList.get(weightList.size() - 1);
-        assertThat(testWeight.getTimestamp()).isEqualTo(DEFAULT_TIMESTAMP);
+        assertThat(testWeight.getDate()).isEqualTo(DEFAULT_DATE);
         assertThat(testWeight.getWeight()).isEqualTo(DEFAULT_WEIGHT);
     }
 
@@ -149,7 +149,7 @@ public class WeightResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(weight.getId().intValue())))
-            .andExpect(jsonPath("$.[*].timestamp").value(hasItem(DEFAULT_TIMESTAMP.toString())))
+            .andExpect(jsonPath("$.[*].date").value(hasItem(DEFAULT_DATE.toString())))
             .andExpect(jsonPath("$.[*].weight").value(hasItem(DEFAULT_WEIGHT.doubleValue())));
     }
     
@@ -164,7 +164,7 @@ public class WeightResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(weight.getId().intValue()))
-            .andExpect(jsonPath("$.timestamp").value(DEFAULT_TIMESTAMP.toString()))
+            .andExpect(jsonPath("$.date").value(DEFAULT_DATE.toString()))
             .andExpect(jsonPath("$.weight").value(DEFAULT_WEIGHT.doubleValue()));
     }
 
@@ -189,7 +189,7 @@ public class WeightResourceIntTest {
         // Disconnect from session so that the updates on updatedWeight are not directly saved in db
         em.detach(updatedWeight);
         updatedWeight
-            .timestamp(UPDATED_TIMESTAMP)
+            .date(UPDATED_DATE)
             .weight(UPDATED_WEIGHT);
 
         restWeightMockMvc.perform(put("/api/weights")
@@ -201,7 +201,7 @@ public class WeightResourceIntTest {
         List<Weight> weightList = weightRepository.findAll();
         assertThat(weightList).hasSize(databaseSizeBeforeUpdate);
         Weight testWeight = weightList.get(weightList.size() - 1);
-        assertThat(testWeight.getTimestamp()).isEqualTo(UPDATED_TIMESTAMP);
+        assertThat(testWeight.getDate()).isEqualTo(UPDATED_DATE);
         assertThat(testWeight.getWeight()).isEqualTo(UPDATED_WEIGHT);
     }
 

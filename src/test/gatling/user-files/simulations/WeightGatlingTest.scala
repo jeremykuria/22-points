@@ -72,7 +72,7 @@ class WeightGatlingTest extends Simulation {
             .headers(headers_http_authenticated)
             .body(StringBody("""{
                 "id":null
-                , "timestamp":"2020-01-01T00:00:00.000Z"
+                , "date":"2020-01-01T00:00:00.000Z"
                 , "weight":null
                 }""")).asJSON
             .check(status.is(201))
