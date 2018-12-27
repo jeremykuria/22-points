@@ -35,9 +35,9 @@
             "fieldName": "notes",
             "fieldType": "String",
             "fieldValidateRules": [
-                "minlength"
+                "maxlength"
             ],
-            "fieldValidateRulesMinlength": "140"
+            "fieldValidateRulesMaxlength": "140"
         }
     ],
     "changelogDate": "20181225135650",
