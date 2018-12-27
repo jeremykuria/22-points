@@ -14,30 +14,18 @@
     <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
 
     <!--
-        Added the entity Points.
+        Added the entity Weight.
     -->
-    <changeSet id="20181225135650-1" author="jhipster">
-        <createTable tableName="points">
+    <changeSet id="20181227081124-1" author="jhipster">
+        <createTable tableName="weight">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="jhi_date" type="date">
-                <constraints nullable="false" />
-            </column>
-
-            <column name="exercise" type="integer">
+            <column name="jhi_timestamp" type="date">
                 <constraints nullable="true" />
             </column>
 
-            <column name="meals" type="integer">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="alcohol" type="integer">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="notes" type="varchar(140)">
+            <column name="weight" type="${floatType}">
                 <constraints nullable="true" />
             </column>
 

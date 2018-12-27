@@ -39,8 +39,8 @@ public class Points implements Serializable {
     @Column(name = "alcohol")
     private Integer alcohol;
 
-    @Size(min = 140)
-    @Column(name = "notes")
+    @Size(max = 140)
+    @Column(name = "notes", length = 140)
     private String notes;
 
     @ManyToOne
