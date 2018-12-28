@@ -10,7 +10,7 @@
     </h2> -->
     <div class="row">
         <div class="col-sm-8">
-            <h2 id="page-heading" jhiTranslate="twentyOnePointsApp.points.home.title">Points</h2>
+            <h2 id="page-heading">Points</h2>
         </div>
         <div class="col-sm-4 text-right">
             <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-points"
@@ -23,7 +23,7 @@
             <form name="searchForm" class="form-inline">
                 <div class="input-group w-100 mr-1">
                     <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch"
-                        placeholder="{{ 'twentyOnePointsApp.points.home.search' | translate }}">
+                        placeholder="search points">
                     <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
                         <fa-icon [icon]="'search'"></fa-icon>
                     </button>
