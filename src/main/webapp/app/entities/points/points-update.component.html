@@ -4,11 +4,11 @@
             <h2 id="jhi-points-heading" jhiTranslate="twentyTwoPointsApp.points.home.createOrEditLabel">Create or edit a Points</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
-                <div class="form-group" [hidden]="!points.id">
+                <!-- <div class="form-group" [hidden]="!points.id">
                     <label for="id" jhiTranslate="global.field.id">ID</label>
                     <input type="text" class="form-control" id="id" name="id"
                         [(ngModel)]="points.id" readonly />
-                </div>
+                </div> -->
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="twentyTwoPointsApp.points.date" for="field_date">Date</label>
                     <div class="input-group">
@@ -25,24 +25,31 @@
                         </small>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="twentyTwoPointsApp.points.exercise" for="field_exercise">Exercise</label>
-                    <input type="number" class="form-control" name="exercise" id="field_exercise"
+                <div class="form-check">
+                    <label class="form-check-label" for="field_exercise">
+                    <input type="checkbox" class="form-check-input" name="exercise" id="field_exercise"
                         [(ngModel)]="points.exercise" />
+                    Did you exercise?    
+                    </label>    
                 </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="twentyTwoPointsApp.points.meals" for="field_meals">Meals</label>
-                    <input type="number" class="form-control" name="meals" id="field_meals"
+                <div class="form-check">
+                    <label class="form-check-label" for="field_meals">
+                    <input type="checkbox" class="form-check-input" name="meals" id="field_meals"
                         [(ngModel)]="points.meals" />
+                        Did you eat well?    
+                    </label>    
                 </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="twentyTwoPointsApp.points.alcohol" for="field_alcohol">Alcohol</label>
-                    <input type="number" class="form-control" name="alcohol" id="field_alcohol"
+                <div class="form-check">
+                    <label class="form-check-label" for="field_alcohol">
+                    <input type="checkbox" class="form-check-input" name="alcohol" id="field_alcohol"
                         [(ngModel)]="points.alcohol" />
+                        Did you drink responsibly?        
+                    </label>    
                 </div>
+                <br />
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="twentyTwoPointsApp.points.notes" for="field_notes">Notes</label>
-                    <input type="text" class="form-control" name="notes" id="field_notes"
+                    <input type="textarea" class="form-control" name="notes" id="field_notes"
                         [(ngModel)]="points.notes" maxlength="140"/>
                     <div [hidden]="!(editForm.controls.notes?.dirty && editForm.controls.notes?.invalid)">
                         <small class="form-text text-danger"
@@ -52,7 +59,7 @@
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" *jhiHasAnyAuthority="'ROLE_ADMIN'">
                     <label class="form-control-label" jhiTranslate="twentyTwoPointsApp.points.user" for="field_user">User</label>
                     <select class="form-control" id="field_user" name="user" [(ngModel)]="points.user" >
                         <option [ngValue]="null"></option>

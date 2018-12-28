@@ -36,6 +36,7 @@ public class PointsResource {
 
     private final PointsRepository pointsRepository;
 
+
     public PointsResource(PointsRepository pointsRepository) {
         this.pointsRepository = pointsRepository;
     }
