@@ -25,21 +25,27 @@
                         </small>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="twentyTwoPointsApp.points.exercise" for="field_exercise">Exercise</label>
-                    <input type="number" class="form-control" name="exercise" id="field_exercise"
+                <div class="form-check">
+                        <label class="form-check-label" for="field_exercise">
+                        <input type="checkbox" class="form-check-input" name="exercise" id="field_exercise"
                         [(ngModel)]="points.exercise" />
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="twentyTwoPointsApp.points.meals" for="field_meals">Meals</label>
-                    <input type="number" class="form-control" name="meals" id="field_meals"
+                        <span jhiTranslate="twentyOnePointsApp.points.exercise" for="field_exercise">Did you exercise?</span>
+                        </label>
+                        </div>
+                        <div class="form-check">
+                        <label class="form-check-label" for="field_meals">
+                        <input type="checkbox" class="form-check-input" name="meals" id="field_meals"
                         [(ngModel)]="points.meals" />
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="twentyTwoPointsApp.points.alcohol" for="field_alcohol">Alcohol</label>
-                    <input type="number" class="form-control" name="alcohol" id="field_alcohol"
+                        <span jhiTranslate="twentyOnePointsApp.points.meals">Did you eat meals?</span>
+                        </label>
+                        </div>
+                        <div class="form-check">
+                        <label class="form-check-label" for="field_alcohol">
+                        <input type="checkbox" class="form-check-input" name="alcohol" id="field_alcohol"
                         [(ngModel)]="points.alcohol" />
-                </div>
+                        <span jhiTranslate="twentyOnePointsApp.points.alcohol" for="field_alcohol">Did you drink responsibly?</span>
+                        </label>
+                        </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="twentyTwoPointsApp.points.notes" for="field_notes">Notes</label>
                     <input type="text" class="form-control" name="notes" id="field_notes"
